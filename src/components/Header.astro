@@ -1,0 +1,114 @@
+---
+// Header.astro
+---
+
+<header>
+  <img
+    src="https://media6.razorplanet.com/share/512599-3789/favicon.ico"
+    alt="Greater Mt. Zion Church Logo"
+    width="50"
+    height="50"
+  />
+  <nav>
+    <a href="#" class="menu-toggle">Menu</a>
+    <div class="menu-links" id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/history">History</a>
+      <a href="/giving">Online Giving</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: linear-gradient(
+      135deg,
+      #421788,
+      #421888
+    ); /* churchy purple theme */
+
+    border-radius: 0 0 12px 12px;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-weight: bold;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .menu-links a {
+    margin-left: 1.6rem;
+    text-decoration: none;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+
+    .menu-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(
+        135deg,
+        #421788,
+        #421888
+      ); /* churchy purple theme */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu-links.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-links a {
+      font-size: 1.5rem;
+      color: white;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const menuItems = document.querySelector(".menu-links");
+
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    menuItems.classList.toggle("show");
+    toggle.classList.toggle("open");
+
+    // Optional: toggle button text
+    toggle.textContent = menuItems.classList.contains("show")
+      ? "Close Menu"
+      : "Menu";
+  });
+</script>

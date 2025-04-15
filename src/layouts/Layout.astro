@@ -1,0 +1,116 @@
+---
+import { ClientRouter } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://media6.razorplanet.com/share/512599-3789/favicon.ico"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+    <title>
+      Greater Mount Zion Baptist Church - Chesapeake, Virginia - Home
+    </title>
+  </head>
+  <body class="container">
+    <slot />
+  </body>
+</html>
+<style is:global>
+  /* 1. Import Roboto Font */
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+  /* 2. CSS Reset */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  /* 3. Themed Variables */
+  :root {
+    /* Colors */
+    --color-primary: #003366; /* Deep blue */
+    --color-secondary: #990000; /* Deep red */
+    --color-accent: #f2f2f2; /* Light gray */
+    --color-background: #ffffff;
+    --color-text: #333333;
+
+    /* Typography */
+    --font-family-base: "Roboto", sans-serif;
+    --font-size-base: 1rem;
+    --font-size-heading: 2rem;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --h1-font-size-base: clamp(4rem, 1.0244rem + 14.878vw, 7.8125rem);
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    /* Border Radius */
+    --border-radius: 4px;
+
+    /* Shadows */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 4. Utility Classes */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .mt-md {
+    margin-top: var(--spacing-md);
+  }
+
+  .mb-md {
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* 5. Responsive Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  p {
+    margin-bottom: var(--spacing-sm);
+  }
+</style>

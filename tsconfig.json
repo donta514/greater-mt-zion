@@ -1,0 +1,22 @@
+// {
+//   "extends": "astro/tsconfigs/strict",
+//   "include": [".astro/types.d.ts", "**/*"],
+//   "exclude": ["dist"],
+//   "compilerOptions": {
+//     "checkJs": false,
+//     "allowJs": true
+//   }
+// }
+
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "jsx": "preserve",
+    "jsxImportSource": "astro"
+  },
+  "include": ["src", ".astro/types.d.ts"],
+  "exclude": ["dist"]
+}
